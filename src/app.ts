@@ -1,8 +1,20 @@
+import { Invoice } from "./classes/Invoices.js";
+
+const invOne = new Invoice("Nibba", "mah moni bruh", 6969);
+const invTwo = new Invoice("Nibbi", "not mah moni bruh", 6868);
+
+let invoices: Invoice[] = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+
+invoices.forEach((element) => {
+  console.log(element);
+});
+
 const anchor = document.querySelector("a")!;
 if (anchor) {
   console.log(anchor.href);
 }
-console.log(anchor.href);
 
 //const form = document.querySelector('form')!;
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
