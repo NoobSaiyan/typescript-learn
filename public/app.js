@@ -1,17 +1,12 @@
 import { Invoice } from "./classes/Invoices.js";
-const invOne = new Invoice("Nibba", "mah moni bruh", 6969);
-const invTwo = new Invoice("Nibbi", "not mah moni bruh", 6868);
-let invoices = [];
-invoices.push(invOne);
-invoices.push(invTwo);
-invoices.forEach((element) => {
-    console.log(element);
-});
-const anchor = document.querySelector("a");
-if (anchor) {
-    console.log(anchor.href);
-}
-//const form = document.querySelector('form')!;
+import { Payment } from "./classes/Payments.js";
+// let docOne: HasFormatter;
+// let docTwo: HasFormatter;
+// docOne = new Invoice('yoshi', 'web work', 250);
+// docTwo = new Payment('mario', 'plumbing', 200);
+// let docs: HasFormatter[] = [];
+// docs.push(docOne);
+// docs.push(docTwo);
 const form = document.querySelector(".new-item-form");
 console.log(form.children);
 // inputs
@@ -21,5 +16,12 @@ const details = document.querySelector("#details");
 const amount = document.querySelector("#amount");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
+    let doc;
+    if (type.value === "invoice") {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    console.log(doc);
 });
