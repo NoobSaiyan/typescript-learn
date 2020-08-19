@@ -3,10 +3,10 @@ import { HasFormatter } from "../interfaces/HasFormatter.js";
 export class Invoice implements HasFormatter {
   constructor(
     readonly client: string,
-    private detail: string,
+    public details: string,
     public amount: number
   ) {}
   format() {
-    return "${this.client} owes £${this.amount} for ${this.details}";
+    return `${this.client} owes £${this.amount} for ${this.details}`;
   }
 }
